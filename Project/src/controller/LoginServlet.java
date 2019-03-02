@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet {
      */
     public LoginServlet() {
         super();
-
     }
 
 	/**
@@ -33,37 +32,42 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
-				dispatcher.forward(request, response);
+				// フォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		dispatcher.forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		// リクエストパラメータの文字コードを指定
 		request.setCharacterEncoding("UTF-8");
 
+		// リクエストパラメータの入力項目を取得
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 
+		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
 		UserDao userDao = new UserDao();
 		User user = userDao.findByLoginInfo(loginId, password);
 
+		//もしテーブルに該当データが無かった場合
 		if (user == null) {
-
+			// リクエストスコープにエラーメッセージをセット
 			request.setAttribute("errMsg", "ログインに失敗しました。");
 
-
+			// ログインjspにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
-
+		// テーブルに該当のデータが見つかった場合
+		//セッションにユーザの情報をセット
 		HttpSession session = request.getSession();
 		session.setAttribute("userInfo", user);
 
+		// ユーザ一覧のサーブレットにリダイレクト
 		response.sendRedirect("UserListServlet");
 	}
 

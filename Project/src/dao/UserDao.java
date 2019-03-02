@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.User;
-
 public class UserDao {
 
     public User findByLoginInfo(String loginId, String password) {

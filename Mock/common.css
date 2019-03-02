@@ -4,12 +4,12 @@
   width: 1170px;
   padding: 0 15px;
   margin: 0 auto;
+  font-family:serif;
 }
 
 .top-wrapper {
   padding: 180px 0 100px 0;
   background-size: cover;
-
   text-align: center;
 }
 .top-wrapper h1 {
@@ -22,10 +22,12 @@
   margin: 20px 0;
 }
 
-.rogin {
+.search {
   background-color: #3b5998;
 }
-
+.signup {
+  background-color: #3b5998;
+}
 
 .btn {
   padding: 8px 24px;
