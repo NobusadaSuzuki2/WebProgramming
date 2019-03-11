@@ -1,0 +1,9 @@
+CREATE DATABASE user DEFAULT CHARACTER SET utf8;
+use user;
+
+CREATE TABLE user(
+id SERIAL,login_id VARCHar(255) UNIQUE NOT NULL,name varchar(255) NOT NULL
+,birth_date DATE NOT NULL,password varchar(255) NOT NULL
+,create_date DATETIME NOT NULL,update_date DATETIME NOT NULL);
+
+INSERT INTO user VALUES('admin','管理者',20190301,'1111',1111,1111);
