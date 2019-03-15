@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.User;
 /**
  * Servlet implementation class signupServlet
  */
@@ -27,10 +30,23 @@ public class signupServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
-		dispatcher.forward(request, response);
 
+		request.setCharacterEncoding("UTF-8");
+		 // HttpSessionインスタンスの取得
+	    HttpSession session = request.getSession();
+
+		// リクエストスコープから"userInfo"インスタンスを取得
+	    User loginId = (User)session.getAttribute("userInfo");
+
+		if(loginId == null) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}else {
+
+			// フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

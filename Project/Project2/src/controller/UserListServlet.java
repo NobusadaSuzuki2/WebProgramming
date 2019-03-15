@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -31,16 +32,29 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ユーザ一覧情報を(DAOを使って)取得
-		UserDao userDao = new UserDao();
-		List<User> userList = userDao.findAll();
+		request.setCharacterEncoding("UTF-8");
+		 // HttpSessionインスタンスの取得
+	    HttpSession session = request.getSession();
 
-		// リクエストスコープにユーザ一覧情報(userListと言う情報)をセット
+		// リクエストスコープから"userInfo"インスタンスを取得
+	    User loginId = (User)session.getAttribute("userInfo");
+
+		if(loginId == null) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}else {
+
+		// ユーザ一覧情報を(DAOを使って)取得
+		UserDao userDao2 = new UserDao();
+		List<User> userList = userDao2.findAll();
+
+		// リクエストスコープにユーザ一情報(userListと言う情報)をセット
 		request.setAttribute("userList", userList);
 
 		// ユーザ一覧のjspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		dispatcher.forward(request, response);
+		}
 	}
 
 	/**

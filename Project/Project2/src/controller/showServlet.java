@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.User;
 
 /**
  * Servlet implementation class showServlet
@@ -27,7 +30,20 @@ public class showServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+		 // HttpSessionインスタンスの取得
+	    HttpSession session = request.getSession();
+
+		// リクエストスコープから"userInfo"インスタンスを取得
+	    User loginId = (User)session.getAttribute("userInfo");
+
+		if(loginId == null) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}else {
 				// URLからGETパラメータとしてIDを受け取る
 				String id = request.getParameter("id");
 
@@ -40,7 +56,7 @@ public class showServlet extends HttpServlet {
 				// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/show.jsp");
 				dispatcher.forward(request, response);
-
+		}
 	}
 
 

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
-
 /**
  * Servlet implementation class LoginServlet
  */
@@ -51,8 +50,8 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
-				UserDao userDao = new UserDao();
-				User user = userDao.findByLoginInfo(loginId, password);
+		UserDao userDao = new UserDao();
+		User user = userDao.findByLoginInfo(loginId, password);
 
 		/** テーブルに該当のデータが見つからなかった場合 **/
 			if (user == null) {

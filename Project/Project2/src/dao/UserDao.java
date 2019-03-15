@@ -54,7 +54,6 @@ public class UserDao {
         }
     }
 
-
     /**
      * 全てのユーザ情報を取得する
      * @return
