@@ -23,15 +23,15 @@
 				<h1>ユーザー新規登録</h1>
 				<H1>　</H1>
 			<form class="form-signin" action="signupServlet" method="post">
-				<h3>ログインID　　　　　　<input type="text" name="rogin_id"></h3>
+				<h3>ログインID　　　　　　<input type="text" name="loginId"></h3>
 
-				<h3>パスワード　　　　　　<input type="text" name="psswrod"></h3>
+				<h3>パスワード　　　　　　<input type="text" name="password"></h3>
 
-				<h3>パスワード（確認）　　<input type="text" name="psswrod"></h3>
+				<h3>パスワード（確認）　　<input type="text" name="password"></h3>
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
 
-				<h3>生年月日　　　　　　　　　　　<input type="text" name="example3" size="10" value="年/月/日"></h3>
+				<h3>生年月日　　　　　　　　　　　<input type="text" name="birthDate" size="10" value="年/月/日"></h3>
 
 				<div class="btn-wrapper">
 					<button class="btn btn-primary" type="submit">登録</button>
