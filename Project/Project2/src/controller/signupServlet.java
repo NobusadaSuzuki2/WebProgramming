@@ -53,7 +53,8 @@ public class signupServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// リクエストパラメータの文字コードを指定
         request.setCharacterEncoding("UTF-8");
 
@@ -63,22 +64,25 @@ public class signupServlet extends HttpServlet {
      	String user_name = request.getParameter("user_name");
    		String birthDate = request.getParameter("birthDate");
 
+
+   		try {
      	// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
 		UserDao userDao = new UserDao();
    		userDao.createInfo(loginId, password, user_name, birthDate);
 
-    	if (loginId == null) {
+
+   	 } catch (NullPointerException e) {
+         e.printStackTrace();
     		// リクエストスコープにエラーメッセージをセット
     		request.setAttribute("errMsg", "未記入のものがあります。");
+
     		// 新規登録jspにフォワード(失敗した時に元の画面に戻る)
    			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
    			dispatcher.forward(request, response);
-
-		}else {
+   	 }
 				// ユーザ一覧のサーブレットにリダイレクト
 				response.sendRedirect("UserListServlet");
 				return;
-			}
 
 	}
 }

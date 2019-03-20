@@ -24,7 +24,7 @@
 				<h1>ユーザー情報更新</h1>
 				<H1>　</H1>
 			<form class="form-signin" action="UpdateServlet" method="post">
-				<h3>ログインID　　　　　　　　　　　　　　<td>${userInfo.loginId}</td></h3>
+				<h3>ログインID　　　　　　　　　　　　　　</h3>
 
 				<h3>パスワード　　　　　　<input type="text" name="psswrod"></h3>
 

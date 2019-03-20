@@ -23,7 +23,7 @@
 		<div class="container">
 				<h1>ユーザー削除確認</h1>
 				<H1>　</H1>
-				<h3>ログインID　　　<td>${userInfo.loginId}</td></h3>
+				<h3>ログインID　　　${userInfo.name}</h3>
 
 				<p>を本当に削除してよろしいでしょうか。</p>
 			<form class="form-signin" action="DestroyServlet" method="post">
