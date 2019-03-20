@@ -104,7 +104,7 @@ public class UserDao {
         }
         return userList;
     }
-
+    //新規登録用
 	public void createInfo(String loginId, String password, String name, String birthDate) {
         Connection conn = null;
         try {
@@ -138,5 +138,84 @@ public class UserDao {
             }
         }
     }
+	//削除用
+	public void destroy(String id) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+
+            // INSERT文を準備
+            String sql = "DELETE FROM user WHERE id = ?";
+
+             // INSERTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, id);
+            pStmt.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        }
+    }
+
+	//ユーザーのID取得用
+	public User findByUserInfo(String id) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+
+            // SELECT文を準備
+            String sql = "SELECT * FROM user WHERE id = ?";
+
+             // SELECTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, id);
+            ResultSet rs = pStmt.executeQuery();
+
+
+            // 主キーに紐づくレコードは1件のみなので、rs.next()は1回だけ行う
+            if (!rs.next()) {
+                return null;
+            }
+
+            // 必要なデータのみインスタンスのフィールドに追加
+            int idData = rs.getInt("id");
+            String loginId = rs.getString("login_id");
+            String name = rs.getString("name");
+            Date birthDate = rs.getDate("birth_date");
+            String password = rs.getString("password");
+            String createDate = rs.getString("create_date");
+            String updateDate = rs.getString("update_date");
+            return new User(idData, loginId, name, birthDate, password, createDate, updateDate);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        }
+    }
+
 }
 

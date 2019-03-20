@@ -30,6 +30,16 @@ public class User implements Serializable{
 			this.createDate = createDate;
 			this.updateDate = updateDate;
 		}
+//		//詳細のデータをセットするコンストラクタ
+//		public User(int id, String loginId, String name, Date birthDate, String createDate,
+//				String updateDate) {
+//			this.id = id;
+//			this.loginId = loginId;
+//			this.name = name;
+//			this.birthDate = birthDate;
+//			this.createDate = createDate;
+//			this.updateDate = updateDate;
+//		}
 
 		public int getId() {
 			return id;

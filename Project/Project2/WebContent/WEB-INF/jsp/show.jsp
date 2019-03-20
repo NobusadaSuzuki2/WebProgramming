@@ -23,11 +23,13 @@
 		<div class="container">
 				<h1>ユーザー情報詳細参照</h1>
 				<H1>　</H1>
-				<h3>ログインID　　　　　　　　　　</h3>
-				<h3>ユーザー名　　　　　　　　　　</h3>
-				<h3>生年月日　　　　　　　　　　</h3>
-				<h3>登録日時　　　　　　　　　　</h3>
-				<h3>更新日時　　　　　　　　　　</h3>
+
+				<h3>ログインID　${userid.loginId}</h3>
+				<h3>ユーザー名　${userid.name}</h3>
+				<h3>生年月日　${userid.birthDate}</h3>
+				<h3>登録日時　${userid.createDate}</h3>
+				<h3>更新日時　${userid.updateDate}</h3>
+
 		</div>
 	</div>
 <a class="btn btn-primary" href="UserListServlet" role="button">戻る</a>

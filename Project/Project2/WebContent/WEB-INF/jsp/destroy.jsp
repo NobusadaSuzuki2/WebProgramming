@@ -23,10 +23,11 @@
 		<div class="container">
 				<h1>ユーザー削除確認</h1>
 				<H1>　</H1>
-				<h3>ログインID　　　${userInfo.name}</h3>
+				<h3>ログインID　　　${userid.name}</h3>
 
 				<p>を本当に削除してよろしいでしょうか。</p>
 			<form class="form-signin" action="DestroyServlet" method="post">
+				<input type="hidden" name="id" value="${userid.id}">
 				<div class="btn-wrapper">
 					<a class="btn btn-primary" href="UserListServlet" role="button">キャンセル</a>
 					<button class="btn btn-danger" type="submit">OK</button>

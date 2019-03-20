@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import model.User;
 
 /**
@@ -32,31 +33,31 @@ public class showServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
 		 // HttpSessionインスタンスの取得
 	    HttpSession session = request.getSession();
 
 		// リクエストスコープから"userInfo"インスタンスを取得
 	    User loginId = (User)session.getAttribute("userInfo");
-
+	    //ユーザーがログインしているか確認
 		if(loginId == null) {
 			response.sendRedirect("LoginServlet");
 			return;
 		}else {
-				// URLからGETパラメータとしてIDを受け取る
-				String id = request.getParameter("id");
+			// URLからGETパラメータとしてIDを受け取る
+			String id = request.getParameter("id");
 
-				// 確認用：idをコンソールに出力
-				System.out.println(id);
+			//idを引数にして、idに紐づくユーザ情報を出力する
+			UserDao userDao = new UserDao();
+			User userid = userDao.findByUserInfo(id);
 
-				// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
-
-				// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
-				// フォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/show.jsp");
-				dispatcher.forward(request, response);
+			// ユーザ情報をリクエストスコープにセットしてjspにフォワード
+			request.setAttribute("userid", userid);
+			// フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/show.jsp");
+			dispatcher.forward(request, response);
 		}
+
 	}
 
 

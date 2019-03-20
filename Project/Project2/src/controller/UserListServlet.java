@@ -36,7 +36,7 @@ public class UserListServlet extends HttpServlet {
 		 // HttpSessionインスタンスの取得
 	    HttpSession session = request.getSession();
 
-		// リクエストスコープから"userInfo"インスタンスを取得
+		// セッションスコープから"userInfo"インスタンスを取得
 	    User loginId = (User)session.getAttribute("userInfo");
 
 		if(loginId == null) {
@@ -45,10 +45,10 @@ public class UserListServlet extends HttpServlet {
 		}else {
 
 		// ユーザ一覧情報を(DAOを使って)取得
-		UserDao userDao2 = new UserDao();
-		List<User> userList = userDao2.findAll();
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findAll();
 
-		// リクエストスコープにユーザ一情報(userListと言う情報)をセット
+		// リクエストスコープにユーザ一情報(userListと言う情報)をセット(インスタンスを保存)
 		request.setAttribute("userList", userList);
 
 		// ユーザ一覧のjspにフォワード
