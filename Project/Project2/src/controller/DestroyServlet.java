@@ -67,7 +67,7 @@ public class DestroyServlet extends HttpServlet {
 		// リクエストパラメータの文字コードを指定
 		request.setCharacterEncoding("UTF-8");
 
-		// URLからGETパラメータとしてIDを受け取る
+		// hiddenがついたインプットのformからIDパラメータを受け取る
 		String id = request.getParameter("id");
 
 		try {

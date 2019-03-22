@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
 <body>
 	<header>
 		<div class="container">
-          	<a style="color:#9d9d9d">${userInfo.name} さん </a>
+			<a style="color: #9d9d9d">${userInfo.name} さん </a>
 			<div class="header-right">
 				<a href="LogoutServlet" class="logout">ログアウト</a>
 			</div>
@@ -21,11 +22,11 @@
 
 	<div class="top-wrapper">
 		<div class="container">
-				<h1>ユーザー削除確認</h1>
-				<H1>　</H1>
-				<h3>ログインID　　　${userid.name}</h3>
+			<h1>ユーザー削除確認</h1>
+			<H1></H1>
+			<h3>ログインID ${userid.name}</h3>
 
-				<p>を本当に削除してよろしいでしょうか。</p>
+			<p>を本当に削除してよろしいでしょうか。</p>
 			<form class="form-signin" action="DestroyServlet" method="post">
 				<input type="hidden" name="id" value="${userid.id}">
 				<div class="btn-wrapper">

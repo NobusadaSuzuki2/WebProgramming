@@ -169,6 +169,40 @@ public class UserDao {
             }
         }
     }
+	//更新用
+		public void updateInfo( String password, String name, String birthDate,String id) {
+	        Connection conn = null;
+	        try {
+	            // データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            // INSERT文を準備
+	            String sql = "UPDATE user SET password = ? ,name= ? ,birth_date = ? ,update_date = now() WHERE id = ?";
+	            			//UPDATE user SET password = '11' ,name= '11' ,birth_date = '20190322' ,update_date = now() WHERE id = 3;
+	             // INSERTを実行し、結果表を取得
+	            PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, password);
+	            pStmt.setString(2, name);
+	            pStmt.setString(3, birthDate);
+	            pStmt.setString(4, id);
+	            pStmt.executeUpdate();
+
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+
+	                }
+	            }
+	        }
+	    }
 
 	//ユーザーのID取得用
 	public User findByUserInfo(String id) {

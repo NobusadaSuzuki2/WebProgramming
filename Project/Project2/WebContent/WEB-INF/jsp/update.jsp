@@ -24,18 +24,19 @@
 				<h1>ユーザー情報更新</h1>
 				<H1>　</H1>
 			<form class="form-signin" action="UpdateServlet" method="post">
-				<h3>ログインID　　　　　　　　　　　　　　</h3>
+			<input type="hidden" name="id" value="${userid.id}">
+				<h3>ログインID　　　　　　　　　　　　　　${userid.name}</h3>
 
-				<h3>パスワード　　　　　　<input type="text" name="psswrod"></h3>
+				<h3>パスワード　　　　　　<input type="text" name="password"></h3>
 
-				<h3>パスワード（確認）　　<input type="text" name="psswrod"></h3>
+				<h3>パスワード（確認）　　<input type="text" name="password"></h3>
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
 
-				<h3>生年月日　　　　　　　　　　　<input type="text" name="example3" size="10" value="年/月/日"></h3>
+				<h3>生年月日　　　　　　　　　　　<input type="text" name="birth_date" size="10" value="年/月/日"></h3>
 
 				<div class="btn-wrapper">
-					<button class="btn btn-primary" type="submit">更新</a>
+					<button class="btn btn-primary" type="submit">更新</button>
 				</div>
 			</form>
 
