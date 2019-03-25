@@ -13,6 +13,9 @@ public class User implements Serializable{
 	private String createDate;
 	private String updateDate;
 
+	public User(String loginId) {
+		this.loginId = loginId;
+	}
 	// ログインセッションを保存するためのコンストラクタ
 		public User(String loginId, String name) {
 			this.loginId = loginId;

@@ -20,6 +20,9 @@
 
 	<div class="top-wrapper">
 		<div class="container">
+				<c:if test="${errMsg != null}">
+					<div class="alert alert-danger" role="alert">${errMsg}</div>
+				</c:if>
 				<h1>ユーザー新規登録</h1>
 				<H1>　</H1>
 			<form class="form-signin" action="signupServlet" method="post">
@@ -27,7 +30,7 @@
 
 				<h3>パスワード　　　　　　<input type="text" name="password"></h3>
 
-				<h3>パスワード（確認）　　<input type="text" name="password"></h3>
+				<h3>パスワード（確認）　　<input type="text" name="password2"></h3>
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
 

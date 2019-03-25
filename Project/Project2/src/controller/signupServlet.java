@@ -63,26 +63,46 @@ public class signupServlet extends HttpServlet {
 		// リクエストパラメータの入力項目を取得
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
+		String password2 = request.getParameter("password2");
 		String user_name = request.getParameter("user_name");
 		String birthDate = request.getParameter("birthDate");
 
-		try {
-			// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
-			UserDao userDao = new UserDao();
-			userDao.createInfo(loginId, password, user_name, birthDate);
-
-		} catch (NullPointerException e) {
-			e.printStackTrace();
+		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+		UserDao userDao = new UserDao();
+		User user = userDao.findByInfo(loginId);
+		//loginIdがすでに存在していた場合
+		if (user != null) {
 			// リクエストスコープにエラーメッセージをセット
-			request.setAttribute("errMsg", "未記入のものがあります。");
+			request.setAttribute("errMsg", "このログインIDは既に使われています");
+			// 新規登録jspにフォワード(失敗した時に元の画面に戻る)
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+			dispatcher.forward(request, response);
+			return;
+		} else if (loginId.equals("") || password.equals("") || password2.equals("") || user_name.equals("") || birthDate.equals("")) {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "未入力の欄があります");
+			// 新規登録jspにフォワード(失敗した時に元の画面に戻る)
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+			dispatcher.forward(request, response);
+			return;
+		} else if (password.equals(password2)) {
+
+			// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+			UserDao userDao2 = new UserDao();
+			userDao2.createInfo(loginId, password, user_name, birthDate);
+			// ユーザ一覧のサーブレットにリダイレクト
+			response.sendRedirect("UserListServlet");
+			return;
+
+		} else {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "確認用パスワードが異なります");
 
 			// 新規登録jspにフォワード(失敗した時に元の画面に戻る)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
 			dispatcher.forward(request, response);
+			return;
 		}
-		// ユーザ一覧のサーブレットにリダイレクト
-		response.sendRedirect("UserListServlet");
-		return;
 
 	}
 }
