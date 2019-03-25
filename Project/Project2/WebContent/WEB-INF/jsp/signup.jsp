@@ -31,7 +31,8 @@
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
 
-				<h3>生年月日　　　　　　　　　　　<input type="text" name="birthDate" size="10" value="年/月/日"></h3>
+				<h3>生年月日　　　　　　　　　　　<input type="text" name="birthDate" size="10" placeholder="年/月/日"></h3>
+				<p>例：２０１９０３２２</p>
 
 				<div class="btn-wrapper">
 					<button class="btn btn-primary" type="submit">登録</button>

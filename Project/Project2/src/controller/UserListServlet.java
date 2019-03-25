@@ -21,46 +21,46 @@ import model.User;
 public class UserListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserListServlet() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserListServlet() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		 // HttpSessionインスタンスの取得
-	    HttpSession session = request.getSession();
-
+		// HttpSessionインスタンスの取得
+		HttpSession session = request.getSession();
 		// セッションスコープから"userInfo"インスタンスを取得
-	    User loginId = (User)session.getAttribute("userInfo");
-
-		if(loginId == null) {
+		User loginId = (User) session.getAttribute("userInfo");
+		//ユーザーがログインしているか確認
+		if (loginId == null) {
 			response.sendRedirect("LoginServlet");
 			return;
-		}else {
+		} else {
+			// ユーザ一覧情報を(DAOを使って)取得
+			UserDao userDao = new UserDao();
+			List<User> userList = userDao.findAll();
 
-		// ユーザ一覧情報を(DAOを使って)取得
-		UserDao userDao = new UserDao();
-		List<User> userList = userDao.findAll();
+			// リクエストスコープにユーザ一情報(userListと言う情報)をセット(インスタンスを保存)
+			request.setAttribute("userList", userList);
 
-		// リクエストスコープにユーザ一情報(userListと言う情報)をセット(インスタンスを保存)
-		request.setAttribute("userList", userList);
-
-		// ユーザ一覧のjspにフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
-		dispatcher.forward(request, response);
+			// ユーザ一覧のjspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 	}
 

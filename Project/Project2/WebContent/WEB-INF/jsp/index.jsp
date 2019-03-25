@@ -33,8 +33,8 @@
 				ユーザー名<input type="text" name="user_name">
 			</h3>
 			<h3>
-				生年月日<input type="text" name="example3" size="10" value="年/月/日">
-				<input type="text" name="example4" size="10" value="年/月/日">
+				生年月日<input type="text" name="example3" size="10" placeholder="年/月/日">
+				<input type="text" name="example4" size="10" placeholder="年/月/日">
 			</h3>
 			<div class="btn-wrapper">
 				<a href="#" class="btn search">検索</a>

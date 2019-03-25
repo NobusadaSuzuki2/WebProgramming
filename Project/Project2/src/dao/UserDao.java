@@ -141,6 +141,7 @@ public class UserDao {
 	//削除用
 	public void destroy(String id) {
         Connection conn = null;
+
         try {
             // データベースへ接続
             conn = DBManager.getConnection();
@@ -178,7 +179,6 @@ public class UserDao {
 
 	            // INSERT文を準備
 	            String sql = "UPDATE user SET password = ? ,name= ? ,birth_date = ? ,update_date = now() WHERE id = ?";
-	            			//UPDATE user SET password = '11' ,name= '11' ,birth_date = '20190322' ,update_date = now() WHERE id = 3;
 	             // INSERTを実行し、結果表を取得
 	            PreparedStatement pStmt = conn.prepareStatement(sql);
 	            pStmt.setString(1, password);

@@ -73,13 +73,14 @@ public class UpdateServlet extends HttpServlet {
 				String user_name = request.getParameter("user_name");
 				String birthDate = request.getParameter("birth_date");
 				String id = request.getParameter("id");
-
 		try {
 			//idを引数にして、idに紐づくユーザ情報を出力する
 			UserDao userDao = new UserDao();
 			userDao.updateInfo(password,user_name,birthDate,id);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "未記入のものがあります。");
 			// 更新jspにフォワード(失敗した時に元の画面に戻る)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 			dispatcher.forward(request, response);
