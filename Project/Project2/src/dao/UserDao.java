@@ -241,6 +241,37 @@ public class UserDao {
 			}
 		}
 	}
+	//パスワード以外の更新用
+		public void updateInfo(String name, String birthDate, String id) {
+			Connection conn = null;
+			try {
+				// データベースへ接続
+				conn = DBManager.getConnection();
+
+				// INSERT文を準備
+				String sql = "UPDATE user SET name= ? ,birth_date = ? ,update_date = now() WHERE id = ?";
+				// INSERTを実行し、結果表を取得
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				pStmt.setString(1, name);
+				pStmt.setString(2, birthDate);
+				pStmt.setString(3, id);
+				pStmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			} finally {
+				// データベース切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+
+					}
+				}
+			}
+		}
 
 	//ユーザーのID取得用
 	public User findByUserInfo(String id) {

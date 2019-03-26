@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<div class="container">
-			<a style="color: #9d9d9d">${userInfo.name} さん </a>
+			<h1 style="color: #9d9d9d">${userInfo.name} さん </h1>
 			<div class="header-right">
 				<a href="LogoutServlet" class="logout">ログアウト</a>
 			</div>

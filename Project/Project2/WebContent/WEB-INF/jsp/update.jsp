@@ -29,7 +29,7 @@
 
 				<h3>パスワード　　　　　　<input type="password" name="password"></h3>
 
-				<h3>パスワード（確認）　　<input type="password" name="password"></h3>
+				<h3>パスワード（確認）　　<input type="password" name="password2"></h3>
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name" placeholder="${userid.name}"></h3>
 
