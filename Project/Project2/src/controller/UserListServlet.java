@@ -61,7 +61,22 @@ public class UserListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		// リクエストパラメータの入力項目を取得
+		String loginId = request.getParameter("loginId");
+		String user_name = request.getParameter("user_name");
+		String birthDate = request.getParameter("birthDate");
+		String birthDate2 = request.getParameter("birthDate2");
 
+		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findByindexInfo(loginId, user_name,birthDate,birthDate2);
+		// リクエストスコープにユーザ一情報(userListと言う情報)をセット(インスタンスを保存)
+		request.setAttribute("userList", userList);
+
+		// ユーザ一覧のjspにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

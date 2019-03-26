@@ -13,10 +13,10 @@
 <body>
 	<header>
 		<div class="container">
-			<h1 style="color: #9d9d9d">${userInfo.name} さん </h1>
 			<div class="header-right">
 				<a href="LogoutServlet" class="logout">ログアウト</a>
 			</div>
+			<h2 style="color: #9d9d9d">${userInfo.name} さん </h2>
 		</div>
 	</header>
 
@@ -26,19 +26,17 @@
 			<div class="btn-wrapper" align="right">
 				<a class="btn btn-success" href="signupServlet" role="button">新規登録</a>
 			</div>
-			<h3>
-				ログインID<input type="text" name="rogin_id">
-			</h3>
-			<h3>
-				ユーザー名<input type="text" name="user_name">
-			</h3>
-			<h3>
-				生年月日<input type="text" name="example3" size="10" placeholder="年/月/日">
-				<input type="text" name="example4" size="10" placeholder="年/月/日">
-			</h3>
-			<div class="btn-wrapper">
-				<a href="#" class="btn search">検索</a>
-			</div>
+			<form action="UserListServlet"method="post">
+				<h3>ログインID<input type="text" name="loginId"></h3>
+				<h3>ユーザー名<input type="text" name="user_name"></h3>
+				<h3>
+					生年月日<input type="text" name="birthDate" size="10" placeholder="年/月/日">
+					<input type="text" name="birthDate2" size="10" placeholder="年/月/日">
+				</h3>
+				<div class="btn-wrapper">
+					<button class="btn search" type="submit">検索</button>
+				</div>
+			</form>
 
 			<table class="table">
 				<thead class="thead-dark">

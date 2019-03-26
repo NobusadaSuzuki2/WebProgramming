@@ -25,7 +25,7 @@
 					<input type="text" name="loginId" placeholder="ログインID">
 				</h3>
 				<h3>
-					<input type="text" name="password" placeholder="パスワード">
+					<input type="password" name="password" placeholder="パスワード">
 				</h3>
 				<div class="btn-wrapper">
 					<button class="btn btn-primary" type="submit">ログイン</button>

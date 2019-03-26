@@ -28,9 +28,9 @@
 			<form class="form-signin" action="signupServlet" method="post">
 				<h3>ログインID　　　　　　<input type="text" name="loginId"></h3>
 
-				<h3>パスワード　　　　　　<input type="text" name="password"></h3>
+				<h3>パスワード　　　　　　<input type="password" name="password"></h3>
 
-				<h3>パスワード（確認）　　<input type="text" name="password2"></h3>
+				<h3>パスワード（確認）　　<input type="password" name="password2"></h3>
 
 				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
 
