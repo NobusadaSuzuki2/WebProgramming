@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.User;
-
+//新規登録の際に既にあるIDか確認用
 public class UserDao {
 	public User findByInfo(String loginId) {
 		Connection conn = null;
