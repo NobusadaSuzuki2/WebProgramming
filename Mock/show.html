@@ -3,31 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー情報詳細</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="header.css">
+<link href="Materialize/css/materialize.css" type="text/css"
+	rel="stylesheet" media="screen,projection" />
 </head>
 <body>
 	<header>
-		<div class="container">
-       		<div class="header-right">
-        		<a href="Login.html" class="login">ログアウト</a>
-        	</div>
-    	</div>
+		<nav role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="index.html" class="brand-logo">HOME</a>
+				<ul class="right">
+					<li><a href="show.html"><i class="material-icons">ユーザー</i></a></li>
+					<li><a href="cart.html"><i class="material-icons">カート</i></a></li>
+					<li><a href="login.html"><i class="material-icons">ログアウト</i></a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 
 	<div class="top-wrapper">
 		<div class="container">
-				<h1>ユーザー情報詳細参照</h1>
-				<H1>　</H1>
-				<h3>ログインID　　　　　　　　　　</h3>
-				<h3>ユーザー名　　　　　　　　　　</h3>
-				<h3>生年月日　　　　　　　　　　</h3>
-				<h3>登録日時　　　　　　　　　　</h3>
-				<h3>更新日時　　　　　　　　　　</h3>
+			<h1>ユーザー情報</h1>
+			<div class="row">
+				<div class="col s12">
+					<div class="card grey lighten-5">
+						<div class="card-content">
+							<form action="" method="POST">
+
+								<br> <br>
+								<div class="row">
+									<div class="input-field col s6">
+										<input type="text" name="user_name" value="second"> <label
+											class="active">名前</label>
+									</div>
+									<div class="input-field col s6">
+										<input type="text" name="login_id" value="2nd"> <label
+											class="active">ログインID</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input type="text" name="user_address"
+											value="東京都中央区日本橋箱崎町２７−２ 渡菊第3ビル６階"> <label
+											class="active">住所</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col s12">
+										<button
+											class="btn  waves-effect waves-light  col s4 offset-s4"
+											type="submit" name="action">更新</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="userInfo">
+				<a class="btn btn-primary" href="userBuyHistory.html" role="button">購入履歴</a>
+
+			</div>
+			<div class="userInfo">
+				<a class="btn btn-primary" href="index.html" role="button">ホームに戻る</a>
+			</div>
 		</div>
 	</div>
-<a class="btn btn-primary" href="index.html" role="button">戻る</a>
 
 
 </body>

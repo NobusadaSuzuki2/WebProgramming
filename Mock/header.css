@@ -4,9 +4,8 @@ header {
   height: 65px;
   width: 100%;
   background-color: rgba(34, 49, 52, 0.9);
-  position:fixed;
-  top:0px;
-  z-index:10;
+  float: left;
+
 }
 
 .logo {
@@ -34,5 +33,5 @@ header {
   padding: 0 25px;
   color: white;
   display: block;
-
+float: left;
 }
