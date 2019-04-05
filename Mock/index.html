@@ -8,27 +8,27 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="header.css">
-<link href="Materialize/css/materialize.css" type="text/css"
-	rel="stylesheet" media="screen,projection" />
 </head>
 <body>
-	<header>
-		<nav role="navigation">
-			<div class="nav-wrapper container">
-				<a id="logo-container" href="index.html" class="brand-logo">HOME</a>
-				<ul class="right">
-					<li><a href="show.html"><i class="material-icons">ユーザー</i></a></li>
-					<li><a href="cart.html"><i class="material-icons">カート</i></a></li>
-					<li><a href="login.html"><i class="material-icons">ログアウト</i></a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+<header>
+	<div class="container">
+		<div class="header-right">
+			<a href="Login.html" class="logout">ログアウト</a>
+		</div>
+		<div class="header-right">
+			<a href="signup.html" class="signup">新規登録</a>
+		</div>
+		<div class="header-right">
+			<a href="cart.html" class="cart">カート</a>
+		</div>
+	</div>
+</header>
+
 	<div class="top-wrapper">
 		<div class="container">
 			<h1>商品一覧</h1>
 			<h3>
-				<input type="text" name="rogin_id">
+				<input class="search" type="text" name="rogin_id">
 			</h3>
 
 			<div class="btn-wrapper">
@@ -41,4 +41,13 @@
 		</div>
 	</div>
 </body>
+
+<footer>
+	<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+			</ul>
+		</div>
+	</nav>
+</footer>
 </html>

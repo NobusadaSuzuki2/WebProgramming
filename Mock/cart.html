@@ -9,21 +9,20 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="header.css">
-<link href="Materialize/css/materialize.css" type="text/css"
-	rel="stylesheet" media="screen,projection" />
 </head>
 <body>
 	<header>
-		<nav role="navigation">
-			<div class="nav-wrapper container">
-				<a id="logo-container" href="index.html" class="brand-logo">HOME</a>
-				<ul class="right">
-					<li><a href="show.html"><i class="material-icons">ユーザー</i></a></li>
-					<li><a href="cart.html"><i class="material-icons">カート</i></a></li>
-					<li><a href="login.html"><i class="material-icons">ログアウト</i></a></li>
-				</ul>
+		<div class="container">
+			<div class="header-right">
+				<a href="Login.html" class="logout">ログアウト</a>
 			</div>
-		</nav>
+			<div class="header-right">
+				<a href="signup.html" class="signup">新規登録</a>
+			</div>
+			<div class="header-right">
+				<a href="cart.html" class="cart">カート</a>
+			</div>
+		</div>
 	</header>
 
 	<div class="top-wrapper">
@@ -44,7 +43,7 @@
 					<tr>
 						<th scope="row">座椅子</th>
 						<td></td>
-						<td><a class="btn btn-primary" href="itemInfo" role="button">詳細</a>
+						<td><a class="btn btn-primary" href="itemInfo.html" role="button">詳細</a>
 							<a class="btn btn-danger" href="cart.html" role="button">削除</a></td>
 						<td></td>
 						<td>8990円</td>
@@ -52,7 +51,7 @@
 					<tr>
 						<th scope="row">お茶</th>
 						<td></td>
-						<td><a class="btn btn-primary" href="itemInfo" role="button">詳細</a>
+						<td><a class="btn btn-primary" href="itemInfo.html" role="button">詳細</a>
 							<a class="btn btn-danger" href="cart.html" role="button">削除</a></td>
 						<td></td>
 						<td>699円</td>
@@ -60,7 +59,7 @@
 					<tr>
 						<th scope="row">合鍵</th>
 						<td></td>
-						<td><a class="btn btn-primary" href="itemInfo" role="button">詳細</a>
+						<td><a class="btn btn-primary" href="itemInfo.html" role="button">詳細</a>
 							<a class="btn btn-danger" href="cart.html" role="button">削除</a></td>
 						<td></td>
 						<td>790円</td>

@@ -9,26 +9,25 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="header.css">
-<link href="Materialize/css/materialize.css" type="text/css"
-	rel="stylesheet" media="screen,projection" />
 </head>
 <body>
 	<header>
-		<nav role="navigation">
-			<div class="nav-wrapper container">
-				<a id="logo-container" href="index.html" class="brand-logo">HOME</a>
-				<ul class="right">
-					<li><a href="show.html"><i class="material-icons">ユーザー</i></a></li>
-					<li><a href="cart.html"><i class="material-icons">カート</i></a></li>
-					<li><a href="login.html"><i class="material-icons">ログアウト</i></a></li>
-				</ul>
+		<div class="container">
+			<div class="header-right">
+				<a href="Login.html" class="logout">ログアウト</a>
 			</div>
-		</nav>
+			<div class="header-right">
+				<a href="signup.html" class="signup">新規登録</a>
+			</div>
+			<div class="header-right">
+				<a href="cart.html" class="cart">カート</a>
+			</div>
+		</div>
 	</header>
 
 	<div class="top-wrapper">
 		<div class="container">
-			<h3>買い物かご</h3>
+			<h3>購入内容をご確認の上、購入してください</h3>
 
 			<table class="table">
 				<thead class="thead-dark">
@@ -39,8 +38,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>東京都中央区日本橋箱崎町２７−２ 渡菊第3ビル６階</td>
-						<td>second</td>
+						<th><h5>東京都中央区日本橋箱崎町２７−２ 渡菊第3ビル６階</h5></th>
+						<td><h5>second</h5></td>
 					</tr>
 				</tbody>
 			</table>
@@ -98,6 +97,7 @@
 						<td></td>
 						<td><a class="btn btn-success" href="buyComplete.html"
 							role="button">購入を確定する</a></td>
+
 					</tr>
 				</tbody>
 			</table>
