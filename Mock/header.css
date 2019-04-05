@@ -33,5 +33,10 @@ header {
   padding: 0 25px;
   color: white;
   display: block;
-float: left;
+  float: left;
+}
+div.homeHeader{
+	line-height: 65px;
+	padding: 0 25px;
+	float: left;
 }
