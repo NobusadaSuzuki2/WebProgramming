@@ -24,7 +24,6 @@
 }
 
 .search {
-	background-color: #3b5998;
 	width: 50% !important;
 	padding: 0px 24px !important;
 	text-align: center !important;
@@ -74,4 +73,13 @@ div.cart{
 }
 .card-body{
 	padding: 100px auto !important;
+}
+.tbody-White{
+	background-color:#f8f9fa;
+	box-shadow:3px 3px 3px 3px #adb5bd;
+}
+.itemImage{
+	width: 25%;
+	padding: 10px 24px;
+	float: left;
 }

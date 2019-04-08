@@ -7,34 +7,37 @@
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="header.css">
 </head>
-<body>
-	<header>
-		<div class="container">
-			<div class="header-right">
-				<a href="Login.html" class="logout">ログアウト</a>
-			</div>
-			<div class="header-right">
-				<a href="signup.html" class="signup">新規登録</a>
-			</div>
-			<div class="header-right">
-				<a href="cart.html" class="cart">カート</a>
-			</div>
+<header>
+	<div class="container">
+		<div class="homeHeader">
+			<a href="index.html" style="color: white !important;">HOME</a>
 		</div>
-	</header>
+		<div class="header-right">
+			<a href="Login.html" class="logout">ログアウト</a>
+		</div>
+		<div class="header-right">
+			<a href="signup.html" class="signup">新規登録</a>
+		</div>
+		<div class="header-right">
+			<a href="cart.html" class="cart">カート</a>
+		</div>
+	</div>
+</header>
 
+<body style="background-color:#e9ecef75;">
 	<div class="top-wrapper">
 		<div class="container">
 				<h1>ユーザー新規登録</h1>
 				<H1>　</H1>
-				<h3>ログインID　　　　　　<input type="text" name="rogin_id"></h3>
+				<h3><input type="text" name="rogin_id" placeholder="ログインID"></h3>
 
-				<h3>パスワード　　　　　　<input type="text" name="psswrod"></h3>
+				<h3><input type="text" name="psswrod" placeholder="パスワード"></h3>
 
-				<h3>パスワード（確認）　　<input type="text" name="psswrod"></h3>
+				<h3><input type="text" name="psswrod" placeholder="パスワード（確認）"></h3>
 
-				<h3>ユーザー名　　　　　　<input type="text" name="user_name"></h3>
+				<h3><input type="text" name="user_name" placeholder="ユーザー名"></h3>
 
-				<h3>生年月日　　　　　　　　　　　<input type="text" name="example3" size="10" value="年/月/日"></h3>
+				<h3><input type="text" name="example3" size="10" placeholder="年/月/日"></h3>
 
 				<div class="btn-wrapper">
 					<a class="btn btn-primary" href="index.html" role="button">登録</a>
